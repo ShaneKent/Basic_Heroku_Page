@@ -8,10 +8,11 @@
   },
   "author": "shane-kent",
   "license": "ISC",
-
   "engines": {
     "node": "4.4.3"
   },
-  
-  "start": "node server.js"
+  "start": "node server.js",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
 }
