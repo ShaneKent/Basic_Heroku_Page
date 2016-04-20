@@ -23,3 +23,6 @@ function returnHomeHtml(request, response){
 app.get('/', returnIndexHtml);
 app.get('/index.html', returnIndexHtml);
 app.get('/home.html', returnHomeHtml);
+
+//This needs to be at the end... It is a redirect in case wrong URL is requested.
+app.get('*', returnIndexHtml);
