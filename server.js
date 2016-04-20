@@ -20,6 +20,6 @@ function returnHomeHtml(request, response){\
 	fs.createReadStream("./home.html").pipe(response);
 }
 
-app.get('/', returnIndexHtml);
-app.get('/index.html', returnIndexHtml);
-app.get('/home.html', returnHomeHtml);
+app.get('/', returnIndexHtml(request, response));
+app.get('/index.html', returnIndexHtml(request, response));
+app.get('/home.html', returnHomeHtml(request, response));
