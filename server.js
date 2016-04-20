@@ -20,9 +20,18 @@ function returnHomeHtml(request, response){
 	fs.createReadStream("./home.html").pipe(response);
 }
 
+function returnShaneHtml(request, response){
+	console.log("A user made a request... " + request.url);
+	response.writeHead(200, {"Content-Type": "text/html"});
+	fs.createReadStream("./shane.html").pipe(response);
+}
+
 app.get('/', returnIndexHtml);
 app.get('/index.html', returnIndexHtml);
 app.get('/home.html', returnHomeHtml);
+app.get('/shane.html', returnShaneHtml);
 
 //This needs to be at the end... It is a redirect in case wrong URL is requested.
-app.get('*', returnIndexHtml);
+app.get('*', function(request, response){
+	response.redirect("https://shielded-earth-23416.herokuapp.com");
+});
