@@ -18,6 +18,8 @@ function returnHomeHtml(request, response){
 	console.log("A user made a request... " + request.url);
 	response.writeHead(200, {"Content-Type": "text/html"});
 	fs.createReadStream("./home.html").pipe(response);
+	response.writeHead(200, {"Content-Type": "text/css"});
+	fs.createReadStream("./home_style.css").pipe(response);
 }
 
 function returnShaneHtml(request, response){
