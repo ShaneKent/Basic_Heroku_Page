@@ -14,7 +14,7 @@ function returnIndexHtml(request, response){
 	fs.createReadStream("./index.html").pipe(response);
 }
 
-function returnHomeHtml(request, response){\
+function returnHomeHtml(request, response){
 	console.log("A user made a request... " + request.url);
 	response.writeHead(200, {"Content-Type": "text/html"});
 	fs.createReadStream("./home.html").pipe(response);
