@@ -8,6 +8,8 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
+app.use(express.static("/"));
+
 function returnIndexHtml(request, response){
 	console.log("A user made a request... " + request.url);
 	response.writeHead(200, {"Content-Type": "text/html"});
@@ -18,8 +20,6 @@ function returnHomeHtml(request, response){
 	console.log("A user made a request... " + request.url);
 	response.writeHead(200, {"Content-Type": "text/html"});
 	fs.createReadStream("./home.html").pipe(response);
-	response.writeHead(200, {"Content-Type": "text/css"});
-	fs.createReadStream("./home_style.css").pipe(response);
 }
 
 function returnShaneHtml(request, response){
