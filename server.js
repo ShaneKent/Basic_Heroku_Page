@@ -8,24 +8,24 @@ app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
 
-app.use(express.static("public"));
+//app.use(express.static("public"));
 
 function returnIndexHtml(request, response){
 	console.log("A user made a request... " + request.url);
 	response.writeHead(200, {"Content-Type": "text/html"});
-	fs.createReadStream("./public/index.html").pipe(response);
+	fs.createReadStream("./index.html").pipe(response);
 }
 
 function returnHomeHtml(request, response){
 	console.log("A user made a request... " + request.url);
 	response.writeHead(200, {"Content-Type": "text/html"});
-	fs.createReadStream("./public/home.html").pipe(response);
+	fs.createReadStream("./home.html").pipe(response);
 }
 
 function returnShaneHtml(request, response){
 	console.log("A user made a request... " + request.url);
 	response.writeHead(200, {"Content-Type": "text/html"});
-	fs.createReadStream("./public/shane.html").pipe(response);
+	fs.createReadStream("./shane.html").pipe(response);
 }
 
 app.get('/', returnIndexHtml);
